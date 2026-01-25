@@ -18,16 +18,6 @@ Network Dynamics:
 Economic Engine: A Leontief Input-Output model integrated with a Knowledge Production Function (KPF) that accounts for cultural diversity and R&D spillovers.
 Multi-Objective Optimization: Implementation of the NSGA-II (Non-dominated Sorting Genetic Algorithm II) to identify Pareto-optimal policy configurations for innovation, diversity, and equality.
 
-📂 Repository Structure:
-
-the repository is organized to ensure computational transparency and reproducibility:
-
-`/model`: Contains the core NetLogo simulation file (`.nlogo`).
-`/optimization`: Contains Python scripts using the `pymoo` framework for the evolutionary optimization process.
-    `nsga2_config_full.json`: Configuration file for the optimization experiment.
-  `/data`: Output logs and simulation data.
-    `households_data.csv`, `firms_data.csv`, `summary_metrics.csv`, `economic_network.csv`.
-
 💻 Installation & Prerequisites:
 
 to replicate the simulations or run the optimization, you will need the following software:
