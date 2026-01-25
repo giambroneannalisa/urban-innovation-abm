@@ -18,7 +18,7 @@ Network Dynamics:
 Economic Engine: A Leontief Input-Output model integrated with a Knowledge Production Function (KPF) that accounts for cultural diversity and R&D spillovers.
 Multi-Objective Optimization: Implementation of the NSGA-II (Non-dominated Sorting Genetic Algorithm II) to identify Pareto-optimal policy configurations for innovation, diversity, and equality.
 
-📂 Repository Structure;
+📂 Repository Structure:
 
 the repository is organized to ensure computational transparency and reproducibility:
 
@@ -71,7 +71,3 @@ if you use this model or code in your research, please cite the original Doctora
 
 📝 License:
 This project is licensed under the MIT License.
-
-🙏 Acknowledgments:
-Supervisor: Prof. Raffaele Scuderi.
-Institution: "Kore" University of Enna, Department of Economic and Legal Sciences.
