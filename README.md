@@ -21,7 +21,8 @@ The model follows the ODD+D protocol (Overview, Design concepts, Details + Decis
 
 2.  Network Dynamics
     Social Networks: Modeled using the Kleinberg Small-World algorithm to simulate local clustering and weak ties.
-    Economic Networks: Modeled using Barabási-Albert Scale-Free* preferential attachment to simulate innovation hubs.
+    Economic Networks: Modeled using Barabási-Albert Scale-Free preferential attachment to simulate innovation hubs.
+    
     Knowledge Networks: Connecting universities to firms through firms' "bridging capital". These connections simulate knowledge spillover from academic research to the productive sector.
 
 4.  Economic Engine
