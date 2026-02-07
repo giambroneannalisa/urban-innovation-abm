@@ -1,3 +1,4 @@
+cat << 'EOF' > README.md
 Cultural Diversity, Network Dynamics, and Urban Innovation (ABM)
 
 [![NetLogo](https://img.shields.io/badge/Platform-NetLogo-blue.svg)](https://ccl.northwestern.edu/netlogo/)
@@ -6,7 +7,7 @@ Cultural Diversity, Network Dynamics, and Urban Innovation (ABM)
 [![Status](https://img.shields.io/badge/Status-Work%20in%20Progress-orange.svg)](#-project-status)
 
 ⚠️ Project Status
-This repository is a Work in Progress. It contains the source code developed for a forthcoming Doctoral Thesis**. The full text, experimental data, and final results are currently under review/embargo until the official defense.
+This repository is a work in progress. It contains the source code developed for a forthcoming Doctoral Thesis. The full text, experimental data, and final results are currently under review/embargo until the official defense.
 
 ---
 
@@ -19,25 +20,38 @@ The study explores how cultural diversity interacts with urban innovation system
 ---
 
 🎓 Academic Affiliation
-PhD Candidate: Annalisa Giambrone
-Supervisor: Prof. Raffaele Scuderi
-Institution: University of Enna “Kore”
-Doctoral Program: Research Doctorate in "Economic, Business and Legal Sciences"
-Cycle: XXXVIII Cycle (Academic Year 2022/2023)
+- PhD Candidate: Annalisa Giambrone
+- Supervisor: Prof. Raffaele Scuderi
+- Institution: University of Enna "Kore"
+- Doctoral Program: Research Doctorate in "Economic, Business and Legal Sciences"
+- Cycle: XXXVIII Cycle (Academic Year 2022/2023)
 
 ---
 
 ⚙️ Methodology
-The model follows the ODD+D protocol (Overview, Design concepts, Details + Decision-making). Complete documentation is available in the Thesis.
+The model follows the **ODD+D protocol** (Overview, Design concepts, Details + Decision-making). Complete documentation is available in the Thesis.
 
-1.  Multilayer Networks: Social (Small-World) and Economic (Scale-Free) topologies.
-2.  Economic Engine: Hybrid Leontief Input-Output model + Knowledge Production Function (KPF).
-3.  Optimization: Policy search using **NSGA-II** via the `pymoo` library.
+1. Multilayer Networks**: Social (Small-World) and Economic (Scale-Free) topologies.
+2. Economic Engine**: Hybrid Leontief Input-Output model + Knowledge Production Function (KPF).
+3. Optimization**: Policy search using **NSGA-II** via the `pymoo` library.
 
 ---
 
-🚀 Automated Execution
-To clone the project, set up the environment, and run the optimization automatically on macOS:
+🚀 Quick Start
+
+Prerequisites
+- Python 3.8+
+- NetLogo 6.3.0+ ([Download here](https://ccl.northwestern.edu/netlogo/download.shtml))
+- macOS (tested) or Linux
+
+Installation & Execution
+
+Option 1: Automated Full Pipeline (Recommended)
 ```bash
+# Clone the repository
+git clone https://github.com/giambroneannalisa/urban-innovation-abm.git
+cd urban-innovation-abm
+
+# Make script executable and run
 chmod +x run_full_pipeline.sh
 ./run_full_pipeline.sh
