@@ -1,0 +1,38 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+dist/
+*.egg-info/
+
+# Results & Output
+*.csv
+pareto_results*.csv
+results/
+output/
+checkpoints/
+*.backup.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# NetLogo
+*.tmp
+*.log
+
+# Test files
+test_*.py
