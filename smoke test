@@ -1,0 +1,20 @@
+# Crea un config di test veloce
+cat << 'EOF' > nsga2_config_test.json
+{
+    "NETLOGO_PATH": "/Applications/NetLogo 6.3.0/netlogo-headless.sh",
+    "MODEL_PATH": "Urban_Innovation_Model_vFinal_english.nlogo",
+    "N_REPLICATES": 1,
+    "MAX_TICKS": 50,
+    "POP_SIZE": 4,
+    "N_GENERATIONS": 2,
+    "PARAM_BOUNDS": {
+        "bridging-capital-weight": [0.0, 1.0],
+        "innovation-diffusion-rate": [0.0, 0.2],
+        "policy-effectiveness": [0.0, 1.0],
+        "cultural-diffusion-rate": [0.0, 0.5]
+    }
+}
+EOF
+
+# Lancia il test
+python3 nsga2_optimization.py nsga2_config_test.json
