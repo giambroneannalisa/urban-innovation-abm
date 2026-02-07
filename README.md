@@ -55,3 +55,20 @@ cd urban-innovation-abm
 # Make script executable and run
 chmod +x run_full_pipeline.sh
 ./run_full_pipeline.sh
+
+
+---
+
+🔍 Reproducibility & Open Science
+
+This project follows STROBE-ABM guidelines for agent-based model reporting.
+
+To Replicate Results
+
+Clone the repository at the thesis tag:
+
+```bash
+git clone https://github.com/giambroneannalisa/urban-innovation-abm.git
+cd urban-innovation-abm
+git checkout v1.0-thesis-final
+./run_full_pipeline.sh
