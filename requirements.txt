@@ -5,3 +5,5 @@ matplotlib
 seaborn
 alive-progress
 scipy
+jpype1
+pynetlogo

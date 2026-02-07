@@ -1,63 +1,57 @@
+cat << 'EOF' > README.md
 Cultural Diversity, Network Dynamics, and Urban Innovation (ABM)
 
 [![NetLogo](https://img.shields.io/badge/Platform-NetLogo-blue.svg)](https://ccl.northwestern.edu/netlogo/)
 [![Python](https://img.shields.io/badge/Optimization-Python%20%7C%20pymoo-yellow.svg)](https://pymoo.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Work%20in%20Progress-orange.svg)](#-project-status)
 
-📖 Overview: 
-this repository contains the source code, data, and documentation for the Agent-Based Model (ABM) developed as part of the Doctoral Thesis: "Cultural diversity, network dynamics, and urban innovation: an agent-based model of co-evolutionary processes".
+⚠️ Project Status
+This repository is a work in progress. It contains the source code developed for a forthcoming Doctoral Thesis. The full text, experimental data, and final results are currently under review/embargo until the official defense.
 
-The project investigates the non-linear, co-evolutionary dynamics between cultural diversity, social networks, and urban innovation. It challenges the traditional zero-sum game between economic efficiency and social equity, proposing a new theoretical state termed the Evolutionary Urban Cultural Complex (EUCC).
+---
 
-⚙️ Key Features:
-the model follows the ODD+D protocol (Overview, Design concepts, Details + Decision-making) and simulates a complex urban system containing:
+📖 Overview
+This repository hosts the Agent-Based Model (ABM) and the multi-objective optimization suite for the research: 
+"Cultural diversity, network dynamics, and urban innovation: an agent-based model of co-evolutionary processes".
 
-Heterogeneous Agents: Firms, Households, Institutions, and Universities.
-Network Dynamics:
-    Social Networks: Modeled using the Kleinberg Small-World algorithm to simulate local clustering and weak ties.
-    Economic Networks: Modeled using Barabási-Albert Scale-Free preferential attachment to simulate innovation hubs.
-Economic Engine: A Leontief Input-Output model integrated with a Knowledge Production Function (KPF) that accounts for cultural diversity and R&D spillovers.
-Multi-Objective Optimization: Implementation of the NSGA-II (Non-dominated Sorting Genetic Algorithm II) to identify Pareto-optimal policy configurations for innovation, diversity, and equality.
+The study explores how cultural diversity interacts with urban innovation systems, proposing the Evolutionary Urban Cultural Complex (EUCC) framework to identify policies that balance economic efficiency with social equity.
 
-💻 Installation & Prerequisites:
+---
 
-to replicate the simulations or run the optimization, you will need the following software:
+🎓 Academic Affiliation
+- PhD Candidate: Annalisa Giambrone
+- Supervisor: Prof. Raffaele Scuderi
+- Institution: University of Enna "Kore"
+- Doctoral Program: Research Doctorate in "Economic, Business and Legal Sciences"
+- Cycle: XXXVIII Cycle (Academic Year 2022/2023)
 
-1. Agent-Based Simulation
-NetLogo 6.x: Download from [Northwestern CCL](https://ccl.northwestern.edu/netlogo/).
-Required Extensions (included with standard NetLogo installation):
-     `nw` (Network extension)
-     `matrix`
-     `csv`
+---
 
-2. Evolutionary Optimization
-Python 3.x
-Libraries:
-    `pymoo` (Multi-objective optimization)
-    `numpy`, `pandas` (Data handling)
+⚙️ Methodology
+The model follows the **ODD+D protocol** (Overview, Design concepts, Details + Decision-making). Complete documentation is available in the Thesis.
 
-🚀 Usage:
+1. Multilayer Networks**: Social (Small-World) and Economic (Scale-Free) topologies.
+2. Economic Engine**: Hybrid Leontief Input-Output model + Knowledge Production Function (KPF).
+3. Optimization**: Policy search using **NSGA-II** via the `pymoo` library.
 
-running the Model (GUI)
-1.  Open the `.nlogo` file in NetLogo.
-2.  Click `setup` to initialize agents, networks (Small-World/Scale-Free), and the Leontief matrix.
-3.  Click `go` to run the simulation. Time steps (ticks) represent months.
-4.  Adjust sliders to test specific parameters (e.g., `bridging-capital-weight`, `cultural-diffusion-rate`).
+---
 
-running the Optimization (Headless)
-The optimization script runs the model through 2,750 evaluations to find the Pareto Front.
-1.  Navigate to the `/optimization` directory.
-2.  Ensure `nsga2_config_full.json` is configured (Standard: Population=50, Generations=50, Monte Carlo replicates=5).
-3.  Run the Python script to execute the NSGA-II algorithm.
+🚀 Quick Start
 
-📊 Outputs & Metrics:
-the model exports data at Micro, Meso, and Macro levels, including
-Total Innovation Output: aggregate economic productivity;
-Gini Coefficient: a measure of household income inequality;
-Shannon Entropy: a measure of cultural diversity;
-Segregation Index: physical separation of cultural groups.
+Prerequisites
+- Python 3.8+
+- NetLogo 6.3.0+ ([Download here](https://ccl.northwestern.edu/netlogo/download.shtml))
+- macOS (tested) or Linux
 
-📜 Citation:
-if you use this model or code in your research, please cite the original Doctoral Thesis: Giambrone, A. (2025). Cultural diversity, network dynamics, and urban innovation: an agent-based model of co-evolutionary processes*. PhD Thesis in Economics, Business and Legal Sciences, Kore University of Enna. Supervisor: Prof. Raffaele Scuderi.
+Installation & Execution
 
-📝 License:
-This project is licensed under the MIT License.
+Option 1: Automated Full Pipeline (Recommended)
+```bash
+# Clone the repository
+git clone https://github.com/giambroneannalisa/urban-innovation-abm.git
+cd urban-innovation-abm
+
+# Make script executable and run
+chmod +x run_full_pipeline.sh
+./run_full_pipeline.sh
