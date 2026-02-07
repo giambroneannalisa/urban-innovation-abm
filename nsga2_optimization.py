@@ -15,7 +15,8 @@ from pymoo.operators.crossover.sbx import SBX
 from pymoo.operators.mutation.pm import PM
 from pymoo.core.callback import Callback
 
-# --- CONFIGURAZIONE XML TEMPLATE ---
+# --- XML TEMPLATE CONFIGURATION ---
+# Added {seed} to the template to ensure reproducibility
 EXPERIMENT_XML = """
 <experiments>
   <experiment name="optimization_run" repetitions="1" runMetricsEveryStep="false">
@@ -25,6 +26,9 @@ EXPERIMENT_XML = """
     <metric>total-innovation-output</metric>
     <metric>cultural-diversity-index</metric>
     <metric>gini-coefficient</metric>
+    <enumeratedValueSet variable="random-seed">
+      <value value="{seed}"/>
+    </enumeratedValueSet>
     {enumerated_values}
   </experiment>
 </experiments>
@@ -36,6 +40,7 @@ class CheckpointCallback(Callback):
         self.param_names = param_names
         self.filename = "pareto_results_checkpoint.csv"
         if not os.path.exists(self.filename):
+            # Added "Seeds" to the checkpoint columns
             cols = ["Generation"] + param_names + ["Obj_Innov_Neg", "Obj_Div_Neg", "Obj_Gini"]
             pd.DataFrame(columns=cols).to_csv(self.filename, index=False)
             print(f"💾 Checkpoint file created: {self.filename}")
@@ -51,19 +56,24 @@ class CheckpointCallback(Callback):
         df['Obj_Gini'] = F[:, 2]
         df['Generation'] = gen
         df.to_csv(self.filename, mode='a', header=False, index=False)
-        print(f"💾 Data saved for Generation {gen}")
+        print(f"✅ Data saved for Generation {gen}")
 
-# --- FUNZIONE HELPER PER IL PARALLELISMO ---
+# --- PARALLEL SIMULATION HELPER ---
 def run_single_simulation(params, config, replicate_id):
     pid = os.getpid()
-    unique_id = f"{pid}_{replicate_id}"
+    unique_id = f"{pid}_{replicate_id}_{np.random.randint(1000, 9999)}"
+    
+    # GENERATING THE RANDOM SEED
+    current_seed = int(np.random.randint(0, 2147483647))
     
     param_xml_lines = ""
     for key, val in params.items():
         param_xml_lines += f'<enumeratedValueSet variable="{key}"><value value="{val}"/></enumeratedValueSet>\n'
     
+    # Passing the seed to the XML content
     xml_content = EXPERIMENT_XML.format(
         ticks=config["MAX_TICKS"],
+        seed=current_seed,
         enumerated_values=param_xml_lines
     )
     
@@ -82,10 +92,9 @@ def run_single_simulation(params, config, replicate_id):
             "--table", csv_filename
         ]
         
-        # Timeout 5 minuti per evitare blocchi
+        # 5-minute timeout to prevent hanging
         subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True, timeout=300)
         
-        # Lettura robusta del CSV
         try:
             df = pd.read_csv(csv_filename, skiprows=6, on_bad_lines='skip')
         except:
@@ -100,7 +109,8 @@ def run_single_simulation(params, config, replicate_id):
         return {
             'innovation': float(final_state.get('total-innovation-output', 0)),
             'diversity': float(final_state.get('cultural-diversity-index', 0)),
-            'gini': float(final_state.get('gini-coefficient', 0))
+            'gini': float(final_state.get('gini-coefficient', 0)),
+            'seed': current_seed # Returning the seed for tracking
         }
     except Exception:
         return None
@@ -123,7 +133,7 @@ class NetLogoOptimization(ElementwiseProblem):
     def _evaluate(self, x, out, *args, **kwargs):
         param_dict = dict(zip(self.param_names, x))
         
-        # Parallelismo sulle repliche
+        # Parallel execution across replicates
         with multiprocessing.Pool(self.n_threads) as pool:
             func = partial(run_single_simulation, param_dict, self.config)
             results = pool.map(func, range(self.n_replicates))
@@ -139,14 +149,17 @@ class NetLogoOptimization(ElementwiseProblem):
         avg_div = df_res['diversity'].mean()
         avg_gini = df_res['gini'].mean()
 
+        # Save specific seeds used in this evaluation if needed
+        # (History can be added here)
+
         out["F"] = [-avg_innov, -avg_div, avg_gini]
-        # LOGGING COMPLETO
-        print(f"   Eval: Innov~{int(avg_innov)} Div~{avg_div:.2f} Gini~{avg_gini:.2f}")
+        print(f"   Evaluation: Innovation~{int(avg_innov)} Diversity~{avg_div:.2f} Gini~{avg_gini:.2f}")
 
 if __name__ == "__main__":
     multiprocessing.set_start_method('spawn', force=True)
     
     if len(sys.argv) < 2:
+        print("Usage: python3 nsga2_optimization.py nsga2_config_final.json")
         sys.exit(1)
 
     with open(sys.argv[1], 'r') as f:
@@ -159,7 +172,7 @@ if __name__ == "__main__":
     checkpoint_callback = CheckpointCallback(problem.param_names)
     
     algorithm = NSGA2(
-        pop_size=config.get("POP_SIZE", 20),
+        pop_size=config.get("POP_SIZE", 50),
         n_offsprings=10,
         sampling=FloatRandomSampling(),
         crossover=SBX(prob=0.9, eta=15),
@@ -169,7 +182,7 @@ if __name__ == "__main__":
 
     res = minimize(problem,
                    algorithm,
-                   ('n_gen', config.get("N_GENERATIONS", 10)),
+                   ('n_gen', config.get("N_GENERATIONS", 50)),
                    seed=1,
                    callback=checkpoint_callback,
                    verbose=True)
@@ -180,4 +193,4 @@ if __name__ == "__main__":
     result_df['Obj_Div_Neg'] = res.F[:, 1]
     result_df['Obj_Gini'] = res.F[:, 2]
     result_df.to_csv("pareto_results_final.csv", index=False)
-    print("Final results saved.")
+    print("Final results saved with success.")
