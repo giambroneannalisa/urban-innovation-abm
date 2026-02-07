@@ -106,3 +106,17 @@ Use this mode to find optimal policies using the Genetic Algorithm (NSGA-II).
 ```bash
 # Ensure your virtual environment is active
 python nsga2_optimization.py nsga2_config_final.json
+
+## 📊 Understanding the Outputs
+The optimization script generates two main files:
+- **`pareto_results_checkpoint.csv`**: Real-time logging of every generation. If the simulation is interrupted, you can find the progress here.
+- **`pareto_results_final.csv`**: The final set of non-dominated solutions (the Pareto Front) representing the best trade-offs found between Innovation, Diversity, and Equality.
+
+
+
+## 📝 Citation
+If you use this model or the optimization framework for your research, please cite it as:
+> Giambrone, A. (2026). *Cultural diversity, network dynamics, and urban innovation: an agent-based model of co-evolutionary processes*. Doctoral Thesis.
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
