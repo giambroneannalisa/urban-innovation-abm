@@ -1,3 +1,4 @@
+cat << 'EOF' > run_full_pipeline.sh
 #!/bin/bash
 
 set -e  # Exit on error
@@ -10,7 +11,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 echo -e "${BLUE}╔════════════════════════════════════════════════╗${NC}"
-echo -e "${BLUE}║  Urban Innovation ABM - Full Pipeline         ║${NC}"
+echo -e "${BLUE}║   Urban Innovation ABM - Full Pipeline         ║${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════════════╝${NC}"
 echo ""
 
@@ -18,7 +19,6 @@ echo ""
 if [ ! -f "nsga2_optimization.py" ]; then
     echo -e "${BLUE}🌐 Cloning Repository from GitHub...${NC}"
     
-    # Only remove if directory exists
     if [ -d "urban-innovation-abm" ]; then
         echo -e "${YELLOW}⚠️  Existing directory found. Backing up...${NC}"
         mv urban-innovation-abm "urban-innovation-abm.backup.$(date +%s)"
@@ -42,7 +42,7 @@ source venv/bin/activate
 pip install --upgrade pip --quiet
 pip install -r requirements.txt --quiet
 
-# Config File Check (don't overwrite existing!)
+# Config File Check
 if [ ! -f "nsga2_config_final.json" ]; then
     echo -e "${YELLOW}⚙️  Creating default configuration file...${NC}"
     cat << 'CONF' > nsga2_config_final.json
@@ -91,3 +91,7 @@ echo -e "📊 Results saved:"
 echo -e "   → pareto_results_final.csv"
 echo ""
 echo -e "${BLUE}═══════════════════════════════════════════════${NC}"
+EOF
+
+chmod +x run_full_pipeline.sh
+./run_full_pipeline.sh
