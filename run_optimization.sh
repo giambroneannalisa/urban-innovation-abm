@@ -24,40 +24,13 @@ pip install -r requirements.txt
 # 3. Execute Simulation
 echo -e "${BLUE}🧠 Launching PyMOO Optimization...${NC}"
 echo "--------------------------------------------------"
-python3 nsga2_optimization.py config.json
+# Carica esplicitamente il file nsga2_config_final.json
+python3 nsga2_optimization.py nsga2_config_final.json
 
 # 4. Cleanup
 deactivate
 echo "--------------------------------------------------"
 echo -e "${GREEN}✅ Optimization complete.${NC}"
 EOF
+
 chmod +x run.sh
-./run.sh
-cat << 'EOF' > requirements.txt
-pymoo
-numpy
-pandas
-matplotlib
-seaborn
-alive-progress
-scipy
-jpype1
-pynetlogo
-EOF
-cat << 'EOF' > config.json
-{
-    "NETLOGO_PATH": "/Applications/NetLogo 6.3.0/netlogo-headless.sh",
-    "MODEL_PATH": "Urban_Innovation_Model_vFinal_english.nlogo",
-    "N_REPLICATES": 5,
-    "MAX_TICKS": 300,
-    "POP_SIZE": 50,
-    "N_GENERATIONS": 50,
-    "PARAM_BOUNDS": {
-        "bridging-capital-weight": [0.0, 1.0],
-        "innovation-diffusion-rate": [0.0, 0.2],
-        "policy-effectiveness": [0.0, 1.0],
-        "cultural-diffusion-rate": [0.0, 0.5]
-    }
-}
-EOF
-./run.sh
