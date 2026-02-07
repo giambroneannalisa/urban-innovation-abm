@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Crea un ambiente virtuale
-echo "Creazione dell'ambiente virtuale..."
+# Create a virtual environment
+echo "Creating virtual environment..."
 python3 -m venv venv
 
-# Attiva l'ambiente virtuale
-echo "Attivazione dell'ambiente virtuale..."
+# Activate the virtual environment
+echo "Activating virtual environment..."
 source venv/bin/activate
 
-# Installazione delle dipendenze
-echo "Installazione delle dipendenze dal requirements.txt..."
+# Install dependencies
+echo "Installing dependencies from requirements.txt..."
 pip install -r requirements.txt
 
-# Esecuzione dello script principale
-echo "Esecuzione del main script nsga2_optimization.py..."
-python3 nsga2_optimization.py
+# Run the main optimization script
+echo "Running the main script nsga2_optimization.py..."
+python3 nsga2_optimization.py config.json
