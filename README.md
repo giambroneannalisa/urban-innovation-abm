@@ -1,4 +1,5 @@
 Cultural Diversity, Network Dynamics, and Urban Innovation (ABM)
+
 ⚠️ Project Status
 This repository is a Work in Progress. It contains the computational framework and source code developed for a forthcoming Doctoral Thesis. The full thesis text, experimental data, and final results are currently under review/embargo until the official defense.
 
@@ -9,12 +10,10 @@ The study explores the co-evolutionary dynamics between cultural diversity and u
 
 🎓 Academic Affiliation
 PhD Candidate: Annalisa Giambrone
-
 Supervisor: Prof. Raffaele Scuderi
-
-Institution: Università degli Studi di Enna "Kore"
-
-Department: Scienze economiche, aziendali e giuridiche
+Institution: University of Enna “Kore”
+Doctoral Program: Research Doctorate in "Economic, Business and Legal Sciences"
+Cycle: XXXVIII Cycle (Academic Year 2022/2023)
 
 ⚙️ Key Features & Methodology
 The model is built using the ODD+D protocol (Overview, Design concepts, Details + Decision-making). The complete and detailed ODD+D documentation is included in the Appendix of the doctoral thesis.
@@ -45,12 +44,12 @@ Java Virtual Machine: Ensure your JAVA_HOME is correctly exported: export JAVA_H
 
 Headless Permissions: If the script fails to launch NetLogo, run: chmod +x "/Applications/NetLogo 6.3.0/netlogo-headless.sh".
 
-Parallel Processing: On Apple Silicon (M1/M2/M3), it is recommended to use Python 3.11 or 3.12 for stable JPype1 performance.
+Parallel Processing: On Apple Silicon (M1/M2/M3), it is recommended to use Python 3.11 or 3.12 for stable jpype1 performance.
 
 📝 Citation
-Please cite this work as follows:
+Please cite this research as follows:
 
-Giambrone, A. (2026). Cultural diversity, network dynamics, and urban innovation: an agent-based model of co-evolutionary processes. Doctoral Thesis, Università degli Studi di Enna "Kore". (Forthcoming / Work in Progress). Supervised by Prof. Raffaele Scuderi.
+Giambrone, A. (2026). Cultural diversity, network dynamics, and urban innovation: an agent-based model of co-evolutionary processes. Doctoral Thesis, XXXVIII Cycle. University of Enna “Kore”. (Forthcoming / Work in Progress). Supervised by Prof. Raffaele Scuderi.
 
 📄 License
 The code in this repository is licensed under the MIT License. However, the theoretical framework and the specific EUCC model logic remain the intellectual property of the author as part of the doctoral research.
