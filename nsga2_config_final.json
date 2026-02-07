@@ -7,21 +7,9 @@
     "POP_SIZE": 50,
     "N_GENERATIONS": 50,
     "PARAM_BOUNDS": {
-        "bridging-capital-weight": [
-            0.0,
-            1.0
-        ],
-        "innovation-diffusion-rate": [
-            0.0,
-            0.2
-        ],
-        "policy-effectiveness": [
-            0.0,
-            1.0
-        ],
-        "cultural-diffusion-rate": [
-            0.0,
-            0.5
-        ]
+        "bridging-capital-weight": [0.0, 1.0],
+        "innovation-diffusion-rate": [0.0, 0.2],
+        "policy-effectiveness": [0.0, 1.0],
+        "cultural-diffusion-rate": [0.0, 0.5]
     }
 }
