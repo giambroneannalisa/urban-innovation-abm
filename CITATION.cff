@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Cultural Diversity, Network Dynamics, and Urban Innovation: An Agent-Based Model"
+authors:
+  - family-names: Giambrone
+    given-names: Annalisa
+    email: giambroneannalisa@gmail.com
+abstract: "Agent-Based Model exploring the co-evolutionary dynamics between cultural diversity and urban innovation systems, implementing the Evolutionary Urban Cultural Complex (EUCC) framework."
+keywords:
+  - agent-based modeling
+  - cultural diversity
+  - urban innovation
+  - multi-objective optimization
+  - NetLogo
+  - NSGA-II
+license: MIT
+repository-code: "https://github.com/giambroneannalisa/urban-innovation-abm"
+version: 1.0.0
+date-released: "2026-02-09"
+preferred-citation:
+  type: thesis
+  title: "Cultural Diversity, Network Dynamics, and Urban Innovation: An Agent-Based Model of Co-Evolutionary Processes"
+  authors:
+    - family-names: Giambrone
+      given-names: Annalisa
+  institution:
+    name: "University of Enna Kore"
+  thesis-type: "PhD Thesis"
+  year: 2026
+  department: "Economic, Business and Legal Sciences"
