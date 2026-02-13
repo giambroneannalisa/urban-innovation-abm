@@ -183,7 +183,7 @@ if __name__ == "__main__":
     res = minimize(problem,
                    algorithm,
                    ('n_gen', config.get("N_GENERATIONS", 50)),
-                   seed=1,
+                   seed=42,
                    callback=checkpoint_callback,
                    verbose=True)
 
