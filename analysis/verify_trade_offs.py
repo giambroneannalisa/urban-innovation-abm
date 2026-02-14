@@ -218,8 +218,8 @@ ax.legend()
 ax.invert_yaxis()
 
 plt.tight_layout()
-plt.savefig('analysis/gemini_claims_verification.png', dpi=300, bbox_inches='tight')
-print("\n✅ Figure saved: analysis/gemini_claims_verification.png")
+plt.savefig('analysis/trade_off_analysis.png', dpi=300, bbox_inches='tight')
+print("\n✅ Figure saved: analysis/trade_off_analysis.png")
 
 # ============================================================================
 # FINAL VERDICT
@@ -258,5 +258,5 @@ for v in verdicts:
     print(f"\n{v}")
 
 print("\n" + "="*70)
-print("Analysis complete. Check analysis/gemini_claims_verification.png")
+print("Analysis complete. Check analysis/trade_off_analysis.png")
 print("="*70)
