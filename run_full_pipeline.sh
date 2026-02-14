@@ -1,4 +1,3 @@
-cat << 'EOF' > run_full_pipeline.sh
 #!/bin/bash
 
 set -e  # Exit on error
@@ -91,7 +90,3 @@ echo -e "📊 Results saved:"
 echo -e "   → pareto_results_final.csv"
 echo ""
 echo -e "${BLUE}═══════════════════════════════════════════════${NC}"
-EOF
-
-chmod +x run_full_pipeline.sh
-./run_full_pipeline.sh
