@@ -15,11 +15,14 @@ Innovation-Equity: r=+0.347 (weak relationship)
 ## Quick Start
 Prerequisites: NetLogo 6.x + Python 3.8+
 
-Installation:
+
+**Installation:**
+```bash
 git clone https://github.com/giambroneannalisa/urban-innovation-abm.git
 cd urban-innovation-abm
 pip install -r requirements.txt
 python nsga2_optimization.py nsga2_config_final.json
+```
 
 ## Structure
 - Urban_Innovation_Model_vFinal_english.nlogo (ABM)
