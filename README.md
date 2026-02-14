@@ -1,5 +1,17 @@
 # Urban Innovation ABM - Multi-Objective Optimization Analysis
 
+
+## 🎓 Academic Affiliation
+
+- **PhD Candidate**: Annalisa Giambrone
+- **Supervisor**: Prof. Raffaele Scuderi
+- **Institution**: University of Enna "Kore"
+- **Doctoral Program**: Research Doctorate in Economic, Business and Legal Sciences
+- **Cycle**: XXXVIII
+- **Year**: 2026
+
+---
+
 ## 📋 Project Overview
 
 This repository contains the analysis code and results for a PhD thesis on urban innovation dynamics using Agent-Based Modeling (ABM) and Multi-Objective Optimization. The project explores the trade-offs between **innovation output**, **cultural diversity**, and **economic equality** in urban systems.
